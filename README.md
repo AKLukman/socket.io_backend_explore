@@ -1,8 +1,7 @@
 # 🚀 Order Tracking Backend
 
-## 📋 What You'll Build
+## 📋
 
-In this video series, you'll build a complete real-time order tracking backend with:
 - ✅ REST API with Express
 - ✅ Real-time updates with Socket.IO
 - ✅ MongoDB database integration
