@@ -7,6 +7,7 @@ import cors from 'cors';
 import { connectDB, getCollection, closeDB } from './config/database.js';
 import { Server } from "socket.io";
 import http from "http"
+import { orderHandler } from './socket/orederHandler.js';
 
 
 
@@ -28,7 +29,10 @@ app.use( express.urlencoded( { extended: true } ) );
 const io = new Server( server, { cors: { origin: "*", methods: [ "GET", "POST" ] } } );
 
 io.on( "connection", ( socket ) => {
-  console.log( "socke.io connected", socket.id )
+  socket.emit( "Connected", { message: `User ${ socket.id } connected` } )
+
+  // order handeling
+  orderHandler( io, socket )
 } );
 
 // ==========================================
